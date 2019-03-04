@@ -1,10 +1,17 @@
+# glskeleton
+
+This is template OpenGL cmake project for project for [computer graphics course](https://cglab.gist.ac.kr/courses.html) in gist.
+
+Due to the scope of the lecture, the OpenGL version is intentionally set to *3.1*.
+
+
 # Dependancies
 
-You have to install CMake and Git.
+You should install CMake and Git on your system.
 Other libraries will be installed automatically.
 - CMake, [Install it your self](https://cmake.org/download/)
 - Git, [Install it your self](https://git-scm.com/downloads)
-- {[glfw](https://github.com/glfw/glfw.git) | [glut](https://github.com/dcnieho/FreeGLUT.git)}, Windowing library (You can use it either of one)
+- [glfw](https://github.com/glfw/glfw.git) , Windowing library 
 - [glad](https://github.com/Dav1dde/glad.git), OpenGL function loading library
 - [glm](https://github.com/g-truc/glm.git), Math library for OpenGL and GLSL shader
 - [tinyobjloader](https://github.com/syoyo/tinyobjloader.git), Minimal Wavefront .obj file loading library
@@ -14,32 +21,10 @@ Other libraries will be installed automatically.
 
 Use git recursive clone to download the template.
 
-Clone entire branch
-
-If you want to change the branch see [here](#change-the-repository-branch)
-
-
-If you changed your branch and you are suffering build error see [here](#submodule-init-and-update)
-```sh
-git clone --recursive https://github.com/sleepyeye/glSkeleton.git
-```
-
-Clone master branch only. (Implemented with glfw)
-
 
 ```sh
-git clone --recursive -b master --single-branch https://github.com/sleepyeye/glSkeleton.git
+git clone --recursive https://github.com/CGLAB-Classes/glskeleton.git
 ```
-
-
-Clone freeglut branch only. (Implemented with freeglut)
-
-
-```sh
-git clone --recursive -b freeglut --single-branch https://github.com/sleepyeye/glSkeleton.git
-```
-
-
 
 
 # Build
@@ -61,7 +46,7 @@ cmake ..
 For *windows* user
   1. Go to build folder
   2. Open *glSkeleton.sln* file
-  3. Make *glSkeleton* as startup proejct and build it.
+  3. Make *glSkeleton* as startup project and build it.
 
 
 For *linux* user
@@ -82,10 +67,10 @@ After the build process you will get directory structure like this.
 │   └── src
 ├── extern                                                 # external projects
 │   ├── CMakeLists.txt                                     # DO NOT TOUCH THIS
-│   ├── freeglut
 │   ├── glad
 │   ├── glm
 │   └── tinyobjloader
+├── doc                                                    # your report/report template
 └── src                                                    # your source code
     └── CMakeLists.txt
 └── CMakeLists.txt                                           # in this file 
@@ -138,28 +123,33 @@ add_executable(glskeleton                                   # Change this word
 ```
 
 
-## Change the repository branch
-
-```sh
-git checkout master                                         # from master to freeglut
-git checkout freeglut                                       # from freeglut to master
-```
-
 ## Submodule init and update
 
-This repository only has two branches(master and glut)
-Two branch use different submodule.
-You should initalize the submodule if you changed the branch. You only need to this once when you first checkout your branch.
+
+If you didn't use recursive option when you cloned the repo, you should init and update submodules by following commands.
 ```sh
 git submodule init
 git submodule update
 ```
 
+## use higher version of OpenGL
 
 
-# Scope
+_WARNING, if you are taking our course, you should not change the OpenGL version_
 
-This project template does not cover features in below
-- GLSL shader,
-- OpenGL (3.x >) APIs
-- Texture loading
+Go to *src/main.cpp*.
+Edit following lines.
+
+Original
+```c++
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_ANY_PROFILE);
+```
+
+OpenGL 4.5 with core profile
+```c++
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+```
