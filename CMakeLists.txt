@@ -11,7 +11,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # import in-project external libraries
-add_subdirectory(extern)
+add_subdirectory(extern EXCLUDE_FROM_ALL)
 
 add_subdirectory(src)
 
