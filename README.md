@@ -29,9 +29,66 @@ git clone --recursive https://github.com/CGLAB-Classes/glskeleton.git
 
 # Build
 
-Two step build process.
+## For *windows* user
 
-1. Generate the project
+1. Create build folder in project root
+
+
+2. Run cmake gui(Configure and Generate)
+
+You need to re-run cmake whenever you add more source files (\*.h, \*.cpp)
+See more deatil about this at [here](#add-more-source-files).
+
+
+3. Set path for build and source folder
+  ![cmake-gui-setup](doc/cmake-gui-setup.PNG)
+
+Set source code directory to *project-root*.
+
+Set build directory to *project-root/build*.
+
+4. Configure
+
+  ![Alt text](doc/cmake-configure.PNG)
+
+5. Generate
+
+  ![Alt text](doc/cmake-generate.PNG)
+
+3. Build the project
+
+  1. Go to build folder
+  2. Open *glSkeleton.sln* file
+  3. Make *glSkeleton* as startup project and build it
+
+
+After the build process you will get directory structure like this.
+```
+.
+├── build 
+│   ├── CMakeFiles
+│   ├── bin                                                # you can find your executable here
+│   ├── extern
+│   ├── lib                                                # you can find your static libraries
+│   ├── src
+│   └── glskeleton.sln                                     # your project file
+├── extern                                                 # external projects
+│   ├── CMakeLists.txt                                     # DO NOT TOUCH THIS
+│   ├── glad
+│   ├── glm
+│   └── tinyobjloader
+├── doc                                                    # your report/report template
+└── src                                                    # your source code
+    └── CMakeLists.txt
+└── CMakeLists.txt                                           # in this file 
+12 directories
+```
+
+
+## For *linux* user
+
+
+1. Run cmake
 
 You need to re-run cmake command whenever you add more source files (\*.h, \*.cpp)
 See more deatil about this at [here](#add-more-source-files).
@@ -41,18 +98,10 @@ cd build
 cmake ..
 ```
 
-2. Build the project
+2. Build and compile
 
-For *windows* user
-  1. Go to build folder
-  2. Open *glSkeleton.sln* file
-  3. Make *glSkeleton* as startup project and build it.
-
-
-For *linux* user
 ```sh
-cd build
-make
+make -j4
 ```
 
 
