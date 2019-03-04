@@ -1,5 +1,5 @@
 # glad
-add_subdirectory(glad EXCLUDE_FROM_ALL)
+add_subdirectory(glad)
 if(TARGET glad)
   # Part of the main project
   add_library(glad::glad ALIAS glad)
