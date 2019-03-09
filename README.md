@@ -21,9 +21,9 @@ Other libraries will be installed automatically.
 
 Use git recursive clone to download the template.
 
-
+You should use **Your link** in your repository.
 ```sh
-git clone --recursive https://github.com/CGLAB-Classes/glskeleton.git
+git clone --recursive https://github.com/YOUR-ASSIGNMENT-REPO/glskeleton.git
 ```
 
 
@@ -93,6 +93,7 @@ After the build process you will get directory structure like this.
 You need to re-run cmake command whenever you add more source files (\*.h, \*.cpp)
 See more deatil about this at [here](#add-more-source-files).
 ```sh
+cd <PROJECT_ROOT>
 mkdir build
 cd build
 cmake ..
