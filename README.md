@@ -81,7 +81,7 @@ After the build process you will get directory structure like this.
 ├── doc                                                    # your report/report template
 └── src                                                    # your source code
     └── CMakeLists.txt
-└── CMakeLists.txt                                           # in this file 
+└── CMakeLists.txt
 12 directories
 ```
 
@@ -124,7 +124,7 @@ After the build process you will get directory structure like this.
 ├── doc                                                    # your report/report template
 └── src                                                    # your source code
     └── CMakeLists.txt
-└── CMakeLists.txt                                           # in this file 
+└── CMakeLists.txt
 12 directories
 ```
 
