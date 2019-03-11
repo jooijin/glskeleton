@@ -15,6 +15,7 @@ Other libraries will be installed automatically.
 - [glad](https://github.com/Dav1dde/glad.git), OpenGL function loading library
 - [glm](https://github.com/g-truc/glm.git), Math library for OpenGL and GLSL shader
 - [tinyobjloader](https://github.com/syoyo/tinyobjloader.git), Minimal Wavefront .obj file loading library
+- [python](https://www.python.org/downloads/), Python(GLAD) use python to load opengl functions
 
 
 # Installation
