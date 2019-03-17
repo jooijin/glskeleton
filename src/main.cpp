@@ -1,6 +1,7 @@
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <cmath>
 
 
 // Function prototypes
@@ -49,16 +50,31 @@ int main()
         // Check if any events have been activated (key pressed, mouse moved etc.) and call corresponding response functions
         glfwPollEvents();
 
+		const double PI = 3.14159265359;
+		double v1_x = -0.5, v1_y = -0.5;
+		double v2_x = -0.5, v2_y = 0.5;
+		double v3_x = 0.5, v3_y = 0.5;
+
         // Render
         // Clear the colorbuffer
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		double v1_new_x = v1_x * cos(glfwGetTime()*30*(PI / 180.0)) - v1_y * sin(glfwGetTime()*30*(PI / 180.0));
+		double v1_new_y = v1_x * sin(glfwGetTime()*30*(PI / 180.0)) + v1_y * cos(glfwGetTime()*30*(PI / 180.0));
+		double v2_new_x = v2_x * cos(glfwGetTime()*30*(PI / 180.0)) - v2_y * sin(glfwGetTime()*30*(PI / 180.0));
+		double v2_new_y = v2_x * sin(glfwGetTime()*30*(PI / 180.0)) + v2_y * cos(glfwGetTime()*30*(PI / 180.0));
+		double v3_new_x = v3_x * cos(glfwGetTime()*30*(PI / 180.0)) - v3_y * sin(glfwGetTime()*30*(PI / 180.0));
+		double v3_new_y = v3_x * sin(glfwGetTime()*30*(PI / 180.0)) + v3_y * cos(glfwGetTime()*30*(PI / 180.0));
+		
+		double color = abs(cos(glfwGetTime() * 30 * (PI / 180.0)));
+
 
         glBegin(GL_TRIANGLES);
-        glColor3f(0.7, 0.3, 0.3);
-        glVertex3f(-0.5f, -0.5f, 0);
-        glVertex3f(0.5, -0.5f, 0);
-        glVertex3f(0, 0.5f, 0);
+        glColor3f(color, color, color);
+        glVertex2d(v1_new_x, v1_new_y);
+		glVertex2d(v2_new_x, v2_new_y);
+		glVertex2d(v3_new_x, v3_new_y);
         glEnd();
 
         // Swap the screen buffers
